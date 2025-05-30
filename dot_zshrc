@@ -62,3 +62,8 @@ setopt HIST_IGNORE_ALL_DUPS       # Remove older duplicates
 setopt HIST_REDUCE_BLANKS         # Remove superfluous blanks
 setopt HIST_VERIFY                # Show command with history expansion before running
 setopt EXTENDED_HISTORY           # Add timestamps to history entries
+
+# Start ssh-agent if it's not running
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+  eval "$(ssh-agent -s)" > /dev/null
+fi
