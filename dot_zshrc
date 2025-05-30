@@ -23,6 +23,7 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
 fi
 
 export PATH="$HOME/.local/share/mise/shims:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 fpath+=~/.zsh/completions
 autoload -Uz compinit
@@ -44,3 +45,20 @@ zinit light-mode for \
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# History file location and size
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# Recommended history settings
+setopt APPEND_HISTORY             # Append to the history file, don't overwrite
+setopt SHARE_HISTORY              # Share history across terminals
+setopt INC_APPEND_HISTORY         # Incrementally append commands to history
+setopt HIST_EXPIRE_DUPS_FIRST     # Expire duplicate entries first when trimming history
+setopt HIST_IGNORE_DUPS           # Ignore duplicated commands in the history
+setopt HIST_IGNORE_ALL_DUPS       # Remove older duplicates
+setopt HIST_REDUCE_BLANKS         # Remove superfluous blanks
+setopt HIST_VERIFY                # Show command with history expansion before running
+setopt EXTENDED_HISTORY           # Add timestamps to history entries
